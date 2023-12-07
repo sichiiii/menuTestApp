@@ -1,0 +1,30 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/menu_tags.css' %}">
+
+<nav id="primary_nav_wrap">
+    <ul>
+        {% for item in menu_items %}
+        <li>
+            <a href="{% if item.url %}{{ item.url }}{% else %}#{% endif %}"> {{ item.title }} </a>
+            {% if item.menu_set.all %}
+                <ul>
+                    {% for subitem in item.menu_set.all %}
+                        <li>
+                            <a href="{% if subitem.url %}{{ subitem.url }}{% else %}#{% endif %}"> {{ subitem.title }} </a>
+                            {% if subitem.menu_set.all %}
+                            <ul>
+                                {% for subsubitem in subitem.menu_set.all %}
+                                <li>
+                                        <a href="{% if subitem.url %}{{ subitem.url }}{% else %}#{% endif %}"> {{ subsubitem.title }} </a>
+                                {% endfor %}
+                                </li>
+                            </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+</nav>

@@ -1,0 +1,28 @@
+{% load static %}
+
+<head>
+    <meta charset="UTF-8" />
+    <title>SHOP</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+
+<body>
+    <header>
+        <h2 href="#">CYBEJABKA SHOP</h2>
+        {% load menu_tags %}
+        {% draw_menu 'Products' %}
+        {% draw_menu 'Computers' %}
+    </header>
+
+    <section class="hero">
+        <div class="background-image" style="background-image: url(https://wallpaper-house.com/data/out/9/wallpaper2you_297801.png)"></div>
+        <div class="hero-content-area">
+            <h1>Please write me</h1>
+            <a href="https://t.me/cyberjabka" class="btn">TELEGRAM</a>
+        </div>
+    </section>
+
+	<footer>
+		<p>Made by CYBERJABKA</p>
+	</footer>
+</body>
